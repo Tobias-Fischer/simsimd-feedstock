@@ -44,8 +44,8 @@ outputs:
         - pip check
 
   - name: simsimd
-    build:
-      script: simsimd_shim.py
+    script: install-simsimd.sh  # [unix]
+    script: install-simsimd.bat  # [win]
     requirements:
       host:
         - python
@@ -55,6 +55,7 @@ outputs:
     test:
       requires:
         - python
+        - numpy
       imports:
         - numkong
         - simsimd
